@@ -30,9 +30,6 @@ namespace BinPackingComparison
             Console.WriteLine("\nExecutare algoritmi: \n");
 
 
-            //BinPackingAlgorithm<double> harmonick = new HarmonicK(new double[] { .5, .7, .5, .2, .4, .2, .5, .1, .6 }, 9, 1.0, 4);
-            //harmonick.SimulateBinPackingProblem();
-
 			var randomArray = GenerateRandomArray(1, 7, numberOfItems);
             var taskArray = (new List<BinPackingAlgorithm<int>>
             {

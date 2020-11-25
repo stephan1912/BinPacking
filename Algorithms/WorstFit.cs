@@ -13,22 +13,14 @@ namespace BinPackingComparison.Algorithms
 
 		public override int ComputeNumberOfBins()
 		{
-			// Initialize result (Count of bins) 
 			int res = 0;
 
-			// Create an array to store remaining space in bins 
-			// there can be at most n bins 
 			int[] bin_rem = new int[NumberOfItems];
 
-			// Place items one by one 
 			for (int i = 0; i < NumberOfItems; i++)
 			{
-				// Find the best bin that ca\n accomodate 
-				// weight[i] 
 				int j;
 
-				// Initialize maximum space left and index 
-				// of worst bin 
 				int mx = -1, wi = 0;
 
 				for (j = 0; j < res; j++)
@@ -40,15 +32,15 @@ namespace BinPackingComparison.Algorithms
 					}
 				}
 
-				// If no bin could accommodate weight[i], 
-				// create a new bin 
-				if (mx == -1)
-				{
-					bin_rem[res] = BinCapacity - ItemsArray[i];
-					res++;
-				}
-				else // Assign the item to best bin 
-					bin_rem[wi] -= ItemsArray[i];
+                if (mx == -1)
+                {
+                    bin_rem[res] = BinCapacity - ItemsArray[i];
+                    res++;
+                }
+                else
+                {
+                    bin_rem[wi] -= ItemsArray[i];
+                }
 			}
 			return res;
         }
